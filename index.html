@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ExtTender (alpha) || Megafry</title>
+  <meta charset="utf-8" />
+  <meta name="apple-mobile-web-app-title" content="ExtTender" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="##543b7d" />
+  <meta name="description" content="Alpha - Code generator for TYPO3 Extbase-Extention" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" type="text/css" href="Css/app.css" media="all" />
+
+</head>
+<base href="">
+
+<body>
+  <div class="main">
+    <h1>ExtTender <small>(alpha)</small></h1>
+    <p>Code generator for TYPO3 Extbase-Extention<br />
+    Provide the extention Key and the new database field<br />
+    this tool generate following snippet:
+  </p>
+  <ul>
+    <li>Model</li>
+    <li>TCA</li>
+    <li>locallang.xlf</li>
+  </ul>
+
+    <form id="form" class="form">
+      <div class="form__field">
+        <label for="extensionKey">Extention Key:</label>
+        <input id="extensionKey" type="text" name="extensionKey" value="mf_myext">
+      </div>
+      <div class="form__field">
+        <label for="sqlData">Neu fiels to add:</label>
+        <textarea id="sqlData" name="sqlData" rows="8" cols="80">
+is_event tinyint(1) unsigned DEFAULT '0' NOT NULL,
+full_day tinyint(1) unsigned DEFAULT '0' NOT NULL,
+event_end int(11) unsigned DEFAULT '0',
+organizer int(11) unsigned DEFAULT '0',
+location int(11) unsigned DEFAULT '0',
+organizer_simple varchar(255) DEFAULT '' NOT NULL,
+location_simple varchar(255) DEFAULT '' NOT NULL
+</textarea>
+      </div>
+
+      <button type="submit">Generate</button>
+
+    </form>
+
+    <div class="output">
+      <div class="form">
+        <div class="form__field">
+          <label for="modelData">Classes/Domain/Model/</label>
+          <textarea name="model" rows="20" cols="80" readonly id="modelData"></textarea>
+          <button type="button" name="button" onclick="copyText('modelData')">💾 Copy</button>
+        </div>
+        <div class="form__field">
+          <label for="tcaData">/Configuration/TCA/Overrides/</label>
+          <textarea name="tcaData" rows="20" cols="80" readonly id="tcaData"></textarea>
+          <button type="button" name="button" onclick="copyText('tcaData')">💾 Copy</button>
+        </div>
+        <div class="form__field">
+          <label for="lllData">Resources/Private/Language/locallang.xlf</label>
+          <textarea name="lllData" rows="20" cols="80" readonly id="lllData"></textarea>
+          <button type="button" name="button" onclick="copyText('lllData')">💾 Copy</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="Js/app.js" type="text/javascript"></script>
+</body>
+
+</html>
