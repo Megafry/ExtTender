@@ -7,5 +7,4 @@ This tool generates following snippets:
 *   TCA
 *   locallang.xlf
 
-# ExtTender
-By Megafry
+* [Link](https://megafry.github.io/exttender/)
